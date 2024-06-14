@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Jomolhari&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
