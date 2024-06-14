@@ -13,7 +13,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='shadow-md w-full fixed top-0 left-0 bg-cream z-50'> {/* Added z-50 for stacking context */}
+    <div className='shadow-md w-full fixed top-0 left-0 bg-cream z-50 sm:mb-16'> {/* Added z-50 for stacking context */}
       <div className='md:px-10 py-3 px-7 md:flex justify-between items-center'>
 
         {/* Logo and Title */}
