@@ -13,7 +13,7 @@ const Opportunities1 = () => {
 
   return (
     <div className='flex flex-col min-h-[350px] items-center bg-sun'>
-        <h1 className='font-medium font-header text-rose text-7xl sm:text-5xl md:text-6xl lg:text-7xl mt-12 mb-8 text-center'>Find The Best Opportunities Near Your City </h1>
+        <h1 className='font-medium font-header text-black text-5xl sm:text-5xl md:text-6xl lg:text-7xl mt-12 mb-8 text-center'>Find The Best Opportunities Near Your City </h1>
 
         <div className='flex flex-wrap justify-between lg:justify-between px-4 lg:px-0'>
         {buttons.map((button, index) => (
@@ -29,7 +29,6 @@ const Opportunities1 = () => {
               {button.text}
             </a>
           </div>
-            
           ))}
         </div>
     </div>
