@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
 import Home1 from './components/Home'
+import Opportunities from './components/Opportunities'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,6 +14,7 @@ function App() {
     <Header />
     <Home1 />
     {/* <div className='bg-cream w-full h-screen'></div> */}
+    <Opportunities />
     </>
   )
 }
