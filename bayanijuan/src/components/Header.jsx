@@ -43,9 +43,9 @@ const Header = () => {
               </a>
             </li>
           ))}
-          <button className="bg-sun text-blue font-header px-6 md:ml-8 rounded-full items-center flex hover:bg-rose duration-500 md:static">
+          <a href = "./register.jsx" className="bg-sun text-blue font-header px-6 md:ml-8 rounded-full items-center flex hover:bg-rose duration-500 md:static">
             <span className="text-4xl text-center mt-1">Register</span>
-          </button>
+          </a>
         </ul>
       </div>
     </div>
