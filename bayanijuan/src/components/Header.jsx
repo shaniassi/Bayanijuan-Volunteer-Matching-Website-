@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from '../assets/logo.png';
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
@@ -43,9 +44,11 @@ const Header = () => {
               </a>
             </li>
           ))}
-          <button className="bg-sun text-blue font-header px-6 md:ml-8 rounded-full items-center flex hover:bg-rose duration-500 md:static">
-            <span className="text-4xl text-center mt-1">Register</span>
-          </button>
+          <Link to="/register">
+            <button className="bg-sun text-blue font-header px-6 md:ml-8 rounded-full items-center flex hover:bg-rose duration-500 md:static">
+              <span className="text-4xl text-center mt-1">Register</span>
+            </button>
+          </Link>
         </ul>
       </div>
     </div>
