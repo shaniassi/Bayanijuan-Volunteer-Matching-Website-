@@ -20,7 +20,7 @@ const Register1 = () => {
           </p>
         </div>
         <div className='mt-60'>
-          <Link to="/createacc">
+          <Link to="/Volunteer">
             <button className="bg-blue text-cream py-2 px-10 rounded-full font-semibold hover:bg-rose-dark transition duration-300">
               Join as Volunteer
             </button>
@@ -37,9 +37,11 @@ const Register1 = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
-          <button className="bg-blue text-cream py-2 px-10 rounded-full font-semibold hover:bg-yellow-dark transition duration-300">
-            Create Organization
-          </button>
+          <Link to="/Organization">
+            <button className="bg-blue text-cream py-2 px-10 rounded-full font-semibold hover:bg-yellow-dark transition duration-300">
+              Create Organization
+            </button>
+          </Link>
         </div>
         {/* Right side: Image */}
         <div className="w-[370px] flex items-center justify-center">

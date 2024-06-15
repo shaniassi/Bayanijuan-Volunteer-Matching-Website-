@@ -10,7 +10,8 @@ import Stats from './components/Stats';
 import Footer from './components/Footer';
 
 import Register1 from './components/Register/Register1';
-import Createacc from './components/Register/Createacc';
+import Volunteer from './components/Register/Volunteer';
+import Organization from './components/Register/Organization';
 import Login from './components/Register/Login';
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
             </>
           } />
           <Route path="/register" element={<Register1 />} />
-          <Route path="/createacc" element={<Createacc />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/organization" element={<Organization />} />
           <Route path="/login" element={<Login />} />
         </Routes>
         <div className='w-full h-10 bg-rose'></div>
