@@ -1,13 +1,13 @@
 import React from 'react';
 
 const Stats = () => {
-    const boxes = [
-        { title: 'Box 1', description: 'Short description for Box 1.' },
-        { title: 'Box 2', description: 'Short description for Box 2.' },
-        { title: 'Box 3', description: 'Short description for Box 3.' },
-        { title: 'Box 4', description: 'Short description for Box 4.' },
-      ];
-      
+  const boxes = [
+    { title: '10K', description: 'Volunteers Connected' },
+    { title: '5K', description: 'Organizations Helped' },
+    { title: '12K', description: 'Nonprofits' },
+    { title: '20K', description: 'Monthly Visitors' },
+  ];
+
   return (
     <div className='min-h-[500px] sm:min-h-[700px] flex flex-col lg:flex-row lg:justify-between items-center bg-cream px-5 lg:px-32 py-12 sm:py-20'>
       <div className='lg:w-3/5 flex flex-col justify-center'>
@@ -20,10 +20,10 @@ const Stats = () => {
       </div>
       <div className='lg:w-3/5 lg:pl-10'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6'>
-        {boxes.map((box, index) => (
-            <div key={index} className='bg-white py-20 px-2 rounded-lg shadow-md'>
-              <h2 className='text-xl lg:text-2xl font-medium mb-2 text-center lg:text-left'>{box.title}</h2>
-              <p className='text-sm text-center lg:text-left'>{box.description}</p>
+          {boxes.map((box, index) => (
+            <div key={index} className='bg-sun py-16 px-2 rounded-lg shadow-md flex flex-col items-center justify-center text-center'>
+              <h2 className='text-xl lg:text-8xl font-extrabold mb-2 text-cream'>{box.title}</h2>
+              <p className='text-2xl font-body'>{box.description}</p>
             </div>
           ))}
         </div>

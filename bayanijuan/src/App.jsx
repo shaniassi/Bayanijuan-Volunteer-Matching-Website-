@@ -8,7 +8,10 @@ import Opportunities2 from './components/Opportunities/Opportunities2';
 import Blog1 from './components/Blog/Blog1';
 import Stats from './components/Stats';
 import Footer from './components/Footer';
+
 import Register1 from './components/Register/Register1';
+import Createacc from './components/Register/Createacc';
+import Login from './components/Register/Login';
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
             </>
           } />
           <Route path="/register" element={<Register1 />} />
+          <Route path="/createacc" element={<Createacc />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <div className='w-full h-10 bg-rose'></div>
         <Footer />

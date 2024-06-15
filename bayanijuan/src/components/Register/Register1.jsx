@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Placeholder image data URI
 const placeholderImage = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Crect x="1" y="1" width="198" height="198" stroke="%23000" stroke-width="2" fill="%23FF9900" /%3E%3C/svg%3E';
@@ -19,9 +20,11 @@ const Register1 = () => {
           </p>
         </div>
         <div className='mt-60'>
-        <button className="bg-blue text-cream py-2 px-10 rounded-full font-semibold hover:bg-rose-dark transition duration-300">
-            Join as Volunteer
-          </button>
+          <Link to="/createacc">
+            <button className="bg-blue text-cream py-2 px-10 rounded-full font-semibold hover:bg-rose-dark transition duration-300">
+              Join as Volunteer
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -31,12 +34,12 @@ const Register1 = () => {
           <div className="text-right">
             <h2 className="text-9xl text-blue mb-0 font-header font-medium">Third Section</h2>
             <p className="text-lg text-gray-700 mb-10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
           <button className="bg-blue text-cream py-2 px-10 rounded-full font-semibold hover:bg-yellow-dark transition duration-300">
-              Create Organization
-            </button>
+            Create Organization
+          </button>
         </div>
         {/* Right side: Image */}
         <div className="w-[370px] flex items-center justify-center">
