@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Home from '../Home';
 
-const Login = ({ history }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Using useNavigate hook
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login', {
+      const response = await axios.post('http://localhost:5010/Login', {
         email,
         password
       });
+      console.log("Login response:", response.data);
       if (response.data.success) {
         // If login is successful, redirect to another page (e.g., dashboard)
-        history.push('/dashboard');
+        navigate('/Home'); // Using navigate function
       } else {
         setMessage(response.data.message || 'Login failed');
       }
     } catch (error) {
+      console.error("Login error:", error);
       setMessage('Error logging in');
     }
   };
