@@ -3,7 +3,7 @@ import { BookOpenIcon, GlobeEuropeAfricaIcon, HeartIcon, UsersIcon, LanguageIcon
 
 const Opportunities1 = () => {
   const buttons = [
-    {url: '/', text:'Education & Literacy', icon: BookOpenIcon},
+    {url: '/Education', text:'Education & Literacy', icon: BookOpenIcon},
     {url: '/', text:'Environmental Conservation', icon: GlobeEuropeAfricaIcon},
     {url: '/', text:'Healthcare & Wellness', icon: HeartIcon},
     {url: '/', text:'Youth Development', icon: UsersIcon},

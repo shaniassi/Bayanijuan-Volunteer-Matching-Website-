@@ -7,7 +7,7 @@ const Header = () => {
   const Links = [
     { name: "Home", link: "/" },
     { name: "About", link: "/" },
-    { name: "Find Opportunities", link: "/" },
+    { name: "Find Opportunities", link: "/FindOpp" },
     { name: "Blog", link: "/" },
     { name: "Contact", link: "/" },
   ];

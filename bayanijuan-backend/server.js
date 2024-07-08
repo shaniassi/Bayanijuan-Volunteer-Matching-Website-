@@ -206,6 +206,33 @@ app.get("/popularopportunities", (req, res) => {
     query += " AND skills LIKE ?";
     queryParams.push(`%${skills}%`);
   }
+});
+
+// Route to fetch opportunities based on search criteria
+app.get("/findopportunities", async (req, res) => {
+  const { keyword, cause, skills, category } = req.query;
+
+  let query =
+    "SELECT OrgName, OrgAddress, OppTitle, OrgDescription, datePosted, causeArea, skills, category FROM findopportunities WHERE 1=1";
+  const queryParams = [];
+
+  if (keyword) {
+    query += " AND (OppTitle LIKE ? OR OrgDescription LIKE ?)";
+    queryParams.push(`%${keyword}%`, `%${keyword}%`);
+  }
+  if (cause) {
+    query += " AND causeArea = ?";
+    queryParams.push(cause);
+  }
+  if (skills) {
+    query += " AND skills LIKE ?";
+    queryParams.push(`%${skills}%`);
+  }
+
+  if (category) {
+    query += " AND category = ?";
+    queryParams.push(category);
+  }
 
   // Debugging: Log the query and parameters
   console.log("Executing query:", query);
@@ -213,8 +240,8 @@ app.get("/popularopportunities", (req, res) => {
 
   connection.query(query, queryParams, (err, results) => {
     if (err) {
-      console.error("Error fetching popular opportunities:", err);
-      res.status(500).send("Error fetching popular opportunities");
+      console.error("Error fetching opportunities:", err);
+      res.status(500).send("Error fetching opportunities");
       return;
     }
     res.json(results);
@@ -245,13 +272,11 @@ app.post("/Login", async (req, res) => {
         if (password === user.password) {
           // Passwords match, login successful
           console.log("Volunteer Login successful");
-          return res
-            .status(200)
-            .json({
-              userType: "volunteer",
-              success: true,
-              message: "Login successful",
-            });
+          return res.status(200).json({
+            userType: "volunteer",
+            success: true,
+            message: "Login successful",
+          });
         } else {
           // Passwords do not match
           console.log("Volunteer Incorrect password");
@@ -277,13 +302,11 @@ app.post("/Login", async (req, res) => {
             if (password === user.password) {
               // Passwords match, login successful
               console.log("Organization Login successful");
-              return res
-                .status(200)
-                .json({
-                  userType: "organization",
-                  success: true,
-                  message: "Login successful",
-                });
+              return res.status(200).json({
+                userType: "organization",
+                success: true,
+                message: "Login successful",
+              });
             } else {
               // Passwords do not match
               console.log("Organization Incorrect password");
