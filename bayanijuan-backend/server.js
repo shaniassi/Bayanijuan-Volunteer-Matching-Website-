@@ -116,6 +116,41 @@ app.post("/organizationform", async (req, res) => {
   }
 });
 
+// Route to fetch newopp
+app.get("/newopportunities", (req, res) => {
+  const { keyword, cause, skills } = req.query;
+
+  let query =
+    "SELECT OrgName, OrgAddress, OppTitle, OrgDescription, datePosted, causeArea, skills FROM newopportunities WHERE 1=1";
+  const queryParams = [];
+
+  if (keyword) {
+    query += " AND (OppTitle LIKE ? OR OrgDescription LIKE ?)";
+    queryParams.push(`%${keyword}%`, `%${keyword}%`);
+  }
+  if (cause) {
+    query += " AND causeArea = ?";
+    queryParams.push(cause);
+  }
+  if (skills) {
+    query += " AND skills LIKE ?";
+    queryParams.push(`%${skills}%`);
+  }
+
+  // Debugging: Log the query and parameters
+  console.log("Executing query:", query);
+  console.log("With parameters:", queryParams);
+
+  connection.query(query, queryParams, (err, results) => {
+    if (err) {
+      console.error("Error fetching events:", err);
+      res.status(500).send("Error fetching events");
+      return;
+    }
+    res.json(results);
+  });
+});
+
 // Route to handle login (volunteer or organization)
 app.post("/Login", async (req, res) => {
   const { email, password } = req.body;
@@ -140,11 +175,19 @@ app.post("/Login", async (req, res) => {
         if (password === user.password) {
           // Passwords match, login successful
           console.log("Volunteer Login successful");
-          return res.status(200).json({ userType: "volunteer", success: true, message: "Login successful" });
+          return res
+            .status(200)
+            .json({
+              userType: "volunteer",
+              success: true,
+              message: "Login successful",
+            });
         } else {
           // Passwords do not match
           console.log("Volunteer Incorrect password");
-          return res.status(401).json({ success: false, message: "Incorrect password" });
+          return res
+            .status(401)
+            .json({ success: false, message: "Incorrect password" });
         }
       } else {
         // Check if the email exists in the organization (organizationform) database
@@ -164,16 +207,26 @@ app.post("/Login", async (req, res) => {
             if (password === user.password) {
               // Passwords match, login successful
               console.log("Organization Login successful");
-              return res.status(200).json({ userType: "organization", success: true, message: "Login successful" });
+              return res
+                .status(200)
+                .json({
+                  userType: "organization",
+                  success: true,
+                  message: "Login successful",
+                });
             } else {
               // Passwords do not match
               console.log("Organization Incorrect password");
-              return res.status(401).json({ success: false, message: "Incorrect password" });
+              return res
+                .status(401)
+                .json({ success: false, message: "Incorrect password" });
             }
           } else {
             // Email not found in either volunteer or organization database
             console.log("Email not found");
-            return res.status(401).json({ success: false, message: "Email not found" });
+            return res
+              .status(401)
+              .json({ success: false, message: "Email not found" });
           }
         });
       }

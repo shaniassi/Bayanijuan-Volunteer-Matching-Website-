@@ -13,6 +13,9 @@ import Register1 from "./components/Register/Register1";
 import Volunteer from "./components/Register/Volunteer";
 import Organization from "./components/Register/Organization";
 import Login from "./components/Register/Login";
+import NewOpp from "./Volunteer Opportunities/NewOpp";
+import PopularOpp from "./Volunteer Opportunities/PopularOpp";
+import UpcomingOpp from "./Volunteer Opportunities/UpcomingOpp";
 
 function App() {
   return (
@@ -36,6 +39,10 @@ function App() {
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/organization" element={<Organization />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/new-opportunities" element={<NewOpp />} />
+          <Route path="/upcoming-events" element={<UpcomingOpp />} />
+          <Route path="/popular-opportunities" element={<PopularOpp />} />
+          <Route path="/opportunities2" element={<Opportunities2 />} />
         </Routes>
         <div className="w-full h-10 bg-rose"></div>
         <Footer />

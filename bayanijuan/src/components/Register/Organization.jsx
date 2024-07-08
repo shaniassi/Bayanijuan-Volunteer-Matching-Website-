@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Organization = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,10 @@ const Organization = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5010/organizationform', formData);
+      const response = await axios.post(
+        "http://localhost:5010/organizationform",
+        formData
+      );
       console.log(response.data); // Log response from server
       // Handle success (e.g., clear form, show success message)
       setFormData({
@@ -34,16 +37,19 @@ const Organization = () => {
         phone: "",
         password: "",
       });
-      alert('Organization registration submitted successfully!');
+      alert("Organization registration submitted successfully!");
     } catch (error) {
       if (error.response) {
-        console.error('Error submitting organization registration:', error.response.data);
+        console.error(
+          "Error submitting organization registration:",
+          error.response.data
+        );
         alert(`Error: ${error.response.data.message}`);
       } else if (error.request) {
-        console.error('No response received:', error.request);
-        alert('Error: No response received from the server.');
+        console.error("No response received:", error.request);
+        alert("Error: No response received from the server.");
       } else {
-        console.error('Error:', error.message);
+        console.error("Error:", error.message);
         alert(`Error: ${error.message}`);
       }
     }
@@ -75,7 +81,10 @@ const Organization = () => {
           </div>
 
           <div className="mb-5">
-            <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D]">
+            <label
+              htmlFor="email"
+              className="mb-3 block text-base font-medium text-[#07074D]"
+            >
               Email Address
             </label>
             <input
@@ -126,7 +135,10 @@ const Organization = () => {
           </div>
 
           <div className="mb-5">
-            <label htmlFor="phone" className="mb-3 block text-base font-medium text-[#07074D]">
+            <label
+              htmlFor="phone"
+              className="mb-3 block text-base font-medium text-[#07074D]"
+            >
               Phone Number
             </label>
             <input
@@ -141,7 +153,10 @@ const Organization = () => {
           </div>
 
           <div className="mb-5">
-            <label htmlFor="password" className="mb-3 block text-base font-medium text-[#07074D]">
+            <label
+              htmlFor="password"
+              className="mb-3 block text-base font-medium text-[#07074D]"
+            >
               Password
             </label>
             <input
@@ -166,7 +181,7 @@ const Organization = () => {
         </form>
         <div className="mt-4 text-center">
           <p>
-            Already have an account?{' '}
+            Already have an account?{" "}
             <Link to="/login" className="text-blue font-bold">
               Login
             </Link>
