@@ -34,7 +34,7 @@ app.get("/registerform", (req, res) => {
   });
 });
 
-// Route to handle form submission
+// Route to handle form submission for registerform
 app.post("/registerform", async (req, res) => {
   const {
     firstName,
@@ -77,7 +77,7 @@ app.post("/registerform", async (req, res) => {
   }
 });
 
-// Route to handle form submission for organizations
+// Route to handle form submission for organizationform
 app.post("/organizationform", async (req, res) => {
   const {
     organizationName,
@@ -116,7 +116,7 @@ app.post("/organizationform", async (req, res) => {
   }
 });
 
-// Route to fetch newopp
+// Route to fetch new opportunities
 app.get("/newopportunities", (req, res) => {
   const { keyword, cause, skills } = req.query;
 
@@ -136,6 +136,20 @@ app.get("/newopportunities", (req, res) => {
     query += " AND skills LIKE ?";
     queryParams.push(`%${skills}%`);
   }
+
+  // Debugging: Log the query and parameters
+  console.log("Executing query:", query);
+  console.log("With parameters:", queryParams);
+
+  connection.query(query, queryParams, (err, results) => {
+    if (err) {
+      console.error("Error fetching new opportunities:", err);
+      res.status(500).send("Error fetching new opportunities");
+      return;
+    }
+    res.json(results);
+  });
+});
 
 // Route to fetch upcoming opportunities
 app.get("/upcomingopportunities", (req, res) => {
@@ -172,14 +186,35 @@ app.get("/upcomingopportunities", (req, res) => {
   });
 });
 
+// Route to fetch popular opportunities
+app.get("/popularopportunities", (req, res) => {
+  const { keyword, cause, skills } = req.query;
+
+  let query =
+    "SELECT OrgName, OrgAddress, OppTitle, OrgDescription, datePosted, causeArea, skills FROM popularopportunities WHERE 1=1";
+  const queryParams = [];
+
+  if (keyword) {
+    query += " AND (OppTitle LIKE ? OR OrgDescription LIKE ?)";
+    queryParams.push(`%${keyword}%`, `%${keyword}%`);
+  }
+  if (cause) {
+    query += " AND causeArea = ?";
+    queryParams.push(cause);
+  }
+  if (skills) {
+    query += " AND skills LIKE ?";
+    queryParams.push(`%${skills}%`);
+  }
+
   // Debugging: Log the query and parameters
   console.log("Executing query:", query);
   console.log("With parameters:", queryParams);
 
   connection.query(query, queryParams, (err, results) => {
     if (err) {
-      console.error("Error fetching events:", err);
-      res.status(500).send("Error fetching events");
+      console.error("Error fetching popular opportunities:", err);
+      res.status(500).send("Error fetching popular opportunities");
       return;
     }
     res.json(results);
