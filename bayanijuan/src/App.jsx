@@ -9,6 +9,7 @@ import Blog1 from "./components/Blog/Blog1";
 import Stats from "./components/Stats";
 import Footer from "./components/Footer";
 
+import About from "./components/About";
 import Register1 from "./components/Register/Register1";
 import Volunteer from "./components/Register/Volunteer";
 import Organization from "./components/Register/Organization";
@@ -39,6 +40,7 @@ function App() {
               </>
             }
           />
+          <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register1 />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/organization" element={<Organization />} />
