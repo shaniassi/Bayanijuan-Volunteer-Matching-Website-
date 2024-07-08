@@ -4,8 +4,8 @@ import { BookOpenIcon, GlobeEuropeAfricaIcon, HeartIcon, UsersIcon, LanguageIcon
 const Opportunities1 = () => {
   const buttons = [
     {url: '/Education', text:'Education & Literacy', icon: BookOpenIcon},
-    {url: '/', text:'Environmental Conservation', icon: GlobeEuropeAfricaIcon},
-    {url: '/', text:'Healthcare & Wellness', icon: HeartIcon},
+    {url: '/Environment', text:'Environmental Conservation', icon: GlobeEuropeAfricaIcon},
+    {url: '/Healthcare', text:'Healthcare & Wellness', icon: HeartIcon},
     {url: '/', text:'Youth Development', icon: UsersIcon},
     {url: '/', text:'Arts & Culture', icon: LanguageIcon},
     {url: '/', text:'Animal Welfare', icon: BugAntIcon},

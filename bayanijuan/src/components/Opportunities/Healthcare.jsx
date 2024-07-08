@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Education() {
+function Healthcare() {
   const [keyword, setKeyword] = useState("");
   const [events, setEvents] = useState([]);
 
@@ -15,7 +15,7 @@ function Education() {
         "http://localhost:5010/findopportunities",
         {
           params: {
-            category: "Education & Literacy", // Fetch events only for Education & Literacy
+            category: "Healthcare & Wellness", // Fetch events only for Education & Literacy
             keyword: keyword, // You can pass the keyword here if needed
           },
         }
@@ -92,8 +92,7 @@ function Education() {
                 <strong>Description:</strong> {event.OrgDescription}
               </p>
               <p className="text-sm text-gray-600">
-                <strong>Date Posted:</strong>{" "}
-                {formatDate(event.datePosted)}
+                <strong>Date Posted:</strong> {formatDate(event.datePosted)}
               </p>
             </div>
           ))}
@@ -103,4 +102,4 @@ function Education() {
   );
 }
 
-export default Education;
+export default Healthcare;

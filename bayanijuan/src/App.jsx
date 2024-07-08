@@ -18,6 +18,8 @@ import PopularOpp from "./components/Volunteer Opportunities/PopularOpp";
 import UpcomingOpp from "./components/Volunteer Opportunities/UpcomingOpp";
 import FindOpportunities from "./FindOpportunities";
 import Education from "./components/Opportunities/Education";
+import Environment from './components/Opportunities/Environment'
+import Healthcare from "./components/Opportunities/Healthcare";
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
           <Route path="/" exact component={Opportunities1} />
           <Route path="/findopportunities" component={FindOpportunities} />
           <Route path="/Education" element={<Education />} />
+          <Route path="/Environment" element={<Environment />} />
+          <Route path="/Healthcare" element={<Healthcare />} />
         </Routes>
         <div className="w-full h-10 bg-rose"></div>
         <Footer />
