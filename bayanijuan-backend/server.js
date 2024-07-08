@@ -137,6 +137,41 @@ app.get("/newopportunities", (req, res) => {
     queryParams.push(`%${skills}%`);
   }
 
+// Route to fetch upcoming opportunities
+app.get("/upcomingopportunities", (req, res) => {
+  const { keyword, cause, skills } = req.query;
+
+  let query =
+    "SELECT OrgName, OrgAddress, OppTitle, OrgDescription, datePosted, causeArea, skills FROM upcomingopportunities WHERE 1=1";
+  const queryParams = [];
+
+  if (keyword) {
+    query += " AND (OppTitle LIKE ? OR OrgDescription LIKE ?)";
+    queryParams.push(`%${keyword}%`, `%${keyword}%`);
+  }
+  if (cause) {
+    query += " AND causeArea = ?";
+    queryParams.push(cause);
+  }
+  if (skills) {
+    query += " AND skills LIKE ?";
+    queryParams.push(`%${skills}%`);
+  }
+
+  // Debugging: Log the query and parameters
+  console.log("Executing query:", query);
+  console.log("With parameters:", queryParams);
+
+  connection.query(query, queryParams, (err, results) => {
+    if (err) {
+      console.error("Error fetching upcoming opportunities:", err);
+      res.status(500).send("Error fetching upcoming opportunities");
+      return;
+    }
+    res.json(results);
+  });
+});
+
   // Debugging: Log the query and parameters
   console.log("Executing query:", query);
   console.log("With parameters:", queryParams);
