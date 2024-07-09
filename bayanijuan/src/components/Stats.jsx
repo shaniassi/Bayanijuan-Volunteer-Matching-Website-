@@ -15,7 +15,7 @@ const Stats = () => {
           BayaniJuan seamlessly connects passionate volunteers with meaningful opportunities.
         </h1>
         <p className='text-lg lg:text-xl font-body py-2 text-center lg:text-left mb-8'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Whether you're passionate about education, environmental conservation, healthcare, youth development, arts, or animal welfare, our platform empowers you to make a difference. Join us in creating positive change in communities across the globe.
         </p>
       </div>
       <div className='lg:w-3/5 lg:pl-10'>
