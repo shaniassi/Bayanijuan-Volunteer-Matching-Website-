@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Example data of blog posts
 const blogPosts = [
@@ -18,9 +18,19 @@ const BlogSection = () => {
     setCurrentPostIndex((prevIndex) => (prevIndex === 0 ? blogPosts.length - 1 : prevIndex - 1));
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextPost();
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-[500px] sm:min-h-[650px] bg-cream p-10 flex flex-col items-center">
-      <h2 className="font-medium font-header text-5xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-center max-w-[400px] lg:max-w-full">See the projects we helped accomplish</h2>
+      <h2 className="font-medium font-header text-5xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-center max-w-[400px] lg:max-w-full">
+        See the projects we helped accomplish
+      </h2>
       <div className="max-w-[800px] mx-auto relative w-full">
         {/* Display current blog post */}
         <a href={blogPosts[currentPostIndex].url} className="block rounded-3xl border-rose border-4 overflow-hidden shadow-md">
@@ -48,7 +58,10 @@ const BlogSection = () => {
         </div>
       </div>
       {/* See More button */}
-      <a href={blogPosts[currentPostIndex].url} className="mt-4 bg-blue text-cream font-header text-xl lg:text-2xl rounded-full px-6 lg:px-8 py-1 hover:bg-opacity-80 transition duration-300">
+      <a
+        href={blogPosts[currentPostIndex].url}
+        className="mt-4 bg-blue text-cream font-header text-xl lg:text-2xl rounded-full px-6 lg:px-8 py-1 transition duration-300 ease-in-out transform hover:bg-opacity-80 hover:shadow-lg hover:-translate-y-1"
+      >
         See More
       </a>
     </div>
