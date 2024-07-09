@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 // Example data of blog posts
 const blogPosts = [
-  { id: 1, title: 'First Blog Post', image: 'https://via.placeholder.com/900x500', url: '/blog/first-post' },
-  { id: 2, title: 'Second Blog Post', image: 'https://via.placeholder.com/900x500', url: '/blog/second-post' },
-  { id: 3, title: 'Third Blog Post', image: 'https://via.placeholder.com/900x500', url: '/blog/third-post' },
+  { id: 1, title: 'First Blog Post', image: 'https://students.1fbusa.com/hubfs/25%20Ways%20to%20Volunteer%20in%20Your%20Community.jpg', url: '/blog/first-post' },
+  { id: 2, title: 'Second Blog Post', image: 'https://www.volunteerforever.com/wp-content/uploads/2019/01/Cheap-Affordable-Volunteer-Programs-Header.jpg', url: '/blog/second-post' },
+  { id: 3, title: 'Third Blog Post', image: 'https://globuswarwick.com/wp-content/uploads/2018/10/181021-voluntourism-nepal-team.jpg?w=1920&h=768&crop=1', url: '/blog/third-post' },
 ];
 
 const BlogSection = () => {
@@ -27,7 +27,7 @@ const BlogSection = () => {
           <img
             src={blogPosts[currentPostIndex].image}
             alt={blogPosts[currentPostIndex].title}
-            className="w-full transition duration-300 transform hover:scale-105 hover:opacity-90 cursor-pointer"
+            className="w-full h-[500px] object-cover transition duration-300 transform hover:scale-105 hover:opacity-90 cursor-pointer"
           />
         </a>
         <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-between px-4">
