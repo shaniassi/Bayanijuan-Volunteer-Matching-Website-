@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import banner1 from '../assets/banner1.jpg';
 
 const Home = () => {
@@ -13,9 +14,11 @@ const Home = () => {
         </p>
 
         <div className='flex flex-row gap-6 justify-center lg:justify-start'>
-          <button className='bg-rose text-cream font-header rounded-full px-7 py-1 border-blue mt-5 hover:bg-sun duration-500 mb-5'>
-            <span className='text-4xl'>Volunteer Now!</span>
-          </button>
+          <Link to="/register">
+            <button className='bg-rose text-cream font-header rounded-full px-7 py-1 border-blue mt-5 hover:bg-sun duration-500 mb-5'>
+              <span className='text-4xl'>Volunteer Now!</span>
+            </button>
+          </Link>
         </div>
       </div>
 

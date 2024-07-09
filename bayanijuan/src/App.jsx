@@ -22,6 +22,9 @@ import FindOpportunities from "./FindOpportunities";
 import Education from "./components/Opportunities/Education";
 import Environment from './components/Opportunities/Environment'
 import Healthcare from "./components/Opportunities/Healthcare";
+import Youth from "./components/Opportunities/Youth";
+import Arts from "./components/Opportunities/Arts";
+import Animal from "./components/Opportunities/Animal";
 
 function App() {
   return (
@@ -57,6 +60,9 @@ function App() {
           <Route path="/Education" element={<Education />} />
           <Route path="/Environment" element={<Environment />} />
           <Route path="/Healthcare" element={<Healthcare />} />
+          <Route path="/Youth" element={<Youth />} />
+          <Route path="/Arts" element={<Arts />} />
+          <Route path="/Animal" element={<Animal />} />
         </Routes>
         <div className="w-full h-10 bg-rose"></div>
         <Footer />
