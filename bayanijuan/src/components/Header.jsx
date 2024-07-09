@@ -6,7 +6,7 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 const Header = () => {
   const Links = [
     { name: "Home", link: "/" },
-    { name: "About", link: "/" },
+    { name: "About", link: "/about" },
     { name: "Find Opportunities", link: "/FindOpp" },
     { name: "Blog", link: "/" },
     { name: "Contact", link: "/" },
