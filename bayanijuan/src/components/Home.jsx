@@ -13,7 +13,7 @@ const Home = () => {
         </p>
 
         <div className='flex flex-row gap-6 justify-center lg:justify-start'>
-          <button className='bg-rose text-cream font-header rounded-full px-7 py-1 border-blue mt-5 hover:bg-sun duration-500 mb-5'>
+          <button className='bg-rose text-cream font-header rounded-full px-7 py-1 border-blue mt-5 transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-110 hover:bg-sun mb-5'>
             <span className='text-4xl'>Volunteer Now!</span>
           </button>
         </div>
