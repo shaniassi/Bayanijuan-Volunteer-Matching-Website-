@@ -8,7 +8,7 @@ const Header = () => {
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Find Opportunities", link: "/FindOpp" },
-    { name: "Blog", link: "/" },
+    { name: "Blog", link: "/blog" },
     { name: "Contact", link: "/" },
   ];
   const [isOpen, setIsOpen] = useState(false);
