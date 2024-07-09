@@ -112,7 +112,7 @@ function NewOpp() {
 
         {/* Title */}
         <h2 className="text-3xl font-semibold mt-6 mb-4 ml-4">
-          List of New Opportunities
+          New Opportunities
         </h2>
 
         {/* Display fetched events */}

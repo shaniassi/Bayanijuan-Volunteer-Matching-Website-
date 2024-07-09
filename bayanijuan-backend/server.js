@@ -206,6 +206,19 @@ app.get("/popularopportunities", (req, res) => {
     query += " AND skills LIKE ?";
     queryParams.push(`%${skills}%`);
   }
+
+  // Debugging: Log the query and parameters
+  console.log("Executing query:", query);
+  console.log("With parameters:", queryParams);
+
+  connection.query(query, queryParams, (err, results) => {
+    if (err) {
+      console.error("Error fetching popular opportunities:", err);
+      res.status(500).send("Error fetching popular opportunities");
+      return;
+    }
+    res.json(results);
+  });
 });
 
 // Route to fetch opportunities based on search criteria
