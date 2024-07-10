@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Example data of blog posts
 const blogPosts = [
@@ -9,6 +10,7 @@ const blogPosts = [
 
 const BlogSection = () => {
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
+  const navigate = useNavigate();
 
   const nextPost = () => {
     setCurrentPostIndex((prevIndex) => (prevIndex === blogPosts.length - 1 ? 0 : prevIndex + 1));
@@ -19,12 +21,17 @@ const BlogSection = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const interval = setInterval(() => {
       nextPost();
     }, 2000);
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleSeeMoreClick = () => {
+    navigate('/blog'); // Navigate to the blog page
+  };
 
   return (
     <div className="min-h-[500px] sm:min-h-[650px] bg-cream p-10 flex flex-col items-center">
@@ -58,12 +65,12 @@ const BlogSection = () => {
         </div>
       </div>
       {/* See More button */}
-      <a
-        href={blogPosts[currentPostIndex].url}
+      <button
+        onClick={handleSeeMoreClick}
         className="mt-4 bg-blue text-cream font-header text-xl lg:text-2xl rounded-full px-6 lg:px-8 py-1 transition duration-300 ease-in-out transform hover:bg-opacity-80 hover:shadow-lg hover:-translate-y-1"
       >
         See More
-      </a>
+      </button>
     </div>
   );
 };
