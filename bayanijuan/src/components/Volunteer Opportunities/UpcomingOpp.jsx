@@ -32,6 +32,7 @@ function UpcomingOpp() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchEvents(); // Fetch events when component mounts
   }, []);
 
