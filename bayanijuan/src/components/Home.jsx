@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import banner1 from '../assets/banner1.jpg';
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []);
+
   return (
     <div className='min-h-[600px] mt-20 sm:mt-16 md:mt-20 lg:mt-3 sm:min-h-[750px] flex flex-col-reverse justify-center lg:flex-row lg:justify-between items-center lg:px-32 px-5 gap-10 bg-cream text-blue'>
       <div className='w-full lg:w-2/4 space-y-4 lg:mt-0'>

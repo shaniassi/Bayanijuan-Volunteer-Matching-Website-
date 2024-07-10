@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate(); // Initialize the navigate function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,8 +17,8 @@ const Login = () => {
       });
       console.log("Login response:", response.data);
       if (response.data.success) {
-        // If login is successful, set the login state
-        setIsLoggedIn(true);
+        // If login is successful, navigate to the home page
+        navigate('/Home');
       } else {
         setMessage(response.data.message || 'Login failed');
       }
@@ -76,7 +76,6 @@ const Login = () => {
         <div className="mt-4 text-center">
           <p>Don't have an account? <Link to="/register" className="text-blue font-bold">Register</Link></p>
         </div>
-        {isLoggedIn && <Link to="/home" className="text-blue font-bold">Go to Home</Link>}
       </div>
     </div>
   );

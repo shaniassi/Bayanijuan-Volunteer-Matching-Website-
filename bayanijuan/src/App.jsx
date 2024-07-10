@@ -63,6 +63,18 @@ function App() {
           <Route path="/Youth" element={<Youth />} />
           <Route path="/Arts" element={<Arts />} />
           <Route path="/Animal" element={<Animal />} />
+          <Route
+            path="/Home"
+            element={
+              <>
+                <Home />
+                <Opportunities1 />
+                <Opportunities2 />
+                <Blog1 />
+                <Stats />
+              </>
+            }
+          />
         </Routes>
         <div className="w-full h-10 bg-rose"></div>
         <Footer />
