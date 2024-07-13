@@ -20,7 +20,7 @@ import PopularOpp from "./components/Volunteer Opportunities/PopularOpp";
 import UpcomingOpp from "./components/Volunteer Opportunities/UpcomingOpp";
 import FindOpportunities from "./FindOpportunities";
 import Education from "./components/Opportunities/Education";
-import Environment from './components/Opportunities/Environment'
+import Environment from "./components/Opportunities/Environment";
 import Healthcare from "./components/Opportunities/Healthcare";
 import Youth from "./components/Opportunities/Youth";
 import Arts from "./components/Opportunities/Arts";

@@ -12,6 +12,8 @@ const Organization = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -20,11 +22,28 @@ const Organization = () => {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.organizationName) newErrors.organizationName = "Organization name is required.";
+    if (!formData.email) newErrors.email = "Email address is required.";
+    if (!formData.contactPersonName) newErrors.contactPersonName = "Contact person name is required.";
+    if (!formData.contactPersonTitle) newErrors.contactPersonTitle = "Contact person title is required.";
+    if (!formData.phone) newErrors.phone = "Phone number is required.";
+    if (!formData.password) newErrors.password = "Password is required.";
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     try {
       const response = await axios.post(
-        "http://localhost:5010/organizationform",
+        "http://localhost:5050/organizationform",
         formData
       );
       console.log(response.data); // Log response from server
@@ -37,6 +56,7 @@ const Organization = () => {
         phone: "",
         password: "",
       });
+      setErrors({});
       alert("Organization registration submitted successfully!");
     } catch (error) {
       if (error.response) {
@@ -78,6 +98,7 @@ const Organization = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.organizationName && <p className="text-red-500">{errors.organizationName}</p>}
           </div>
 
           <div className="mb-5">
@@ -96,6 +117,7 @@ const Organization = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.email && <p className="text-red-500">{errors.email}</p>}
           </div>
 
           <div className="mb-5">
@@ -114,6 +136,7 @@ const Organization = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.contactPersonName && <p className="text-red-500">{errors.contactPersonName}</p>}
           </div>
 
           <div className="mb-5">
@@ -132,6 +155,7 @@ const Organization = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.contactPersonTitle && <p className="text-red-500">{errors.contactPersonTitle}</p>}
           </div>
 
           <div className="mb-5">
@@ -150,6 +174,7 @@ const Organization = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.phone && <p className="text-red-500">{errors.phone}</p>}
           </div>
 
           <div className="mb-5">
@@ -168,6 +193,7 @@ const Organization = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.password && <p className="text-red-500">{errors.password}</p>}
           </div>
 
           <div>

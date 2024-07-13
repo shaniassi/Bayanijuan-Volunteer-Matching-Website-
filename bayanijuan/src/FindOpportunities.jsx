@@ -12,7 +12,7 @@ function FindOpportunities() {
     "Healthcare & Wellness",
     "Youth Development",
     "Arts & Culture",
-    "Animal Welfare",
+    "Animal & Welfare",
   ]);
 
   const [openCategories, setOpenCategories] = useState({});
@@ -48,7 +48,7 @@ function FindOpportunities() {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5010/findopportunities",
+        "http://localhost:5050/findopportunities",
         {
           params: {
             keyword,

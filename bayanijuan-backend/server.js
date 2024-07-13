@@ -3,14 +3,15 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 const app = express();
-const port = 5010;
+const port = 5050;
 
 // MySQL Connection
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root_123",
+  password: "",
   database: "wdproj",
+  port: 3307,
 });
 
 connection.connect((err) => {

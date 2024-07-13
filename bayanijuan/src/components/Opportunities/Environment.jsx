@@ -12,7 +12,7 @@ function Environment() {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5010/findopportunities",
+        "http://localhost:5050/findopportunities",
         {
           params: {
             category: "Environmental Conservation", // Fetch events only for Education & Literacy

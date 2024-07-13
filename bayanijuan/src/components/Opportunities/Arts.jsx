@@ -12,7 +12,7 @@ function Arts() {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5010/findopportunities",
+        "http://localhost:5050/findopportunities",
         {
           params: {
             category: "Arts & Culture", // Fetch events only for Youth Development

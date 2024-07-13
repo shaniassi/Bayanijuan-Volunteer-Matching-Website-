@@ -9,7 +9,7 @@ const Header = () => {
     { name: "About", link: "/about" },
     { name: "Find Opportunities", link: "/FindOpp" },
     { name: "Blog", link: "/blog" },
-    { name: "Contact", link: "/" },
+    { name: "Contact", link: "/about#contact-info-header" },
   ];
   const [isOpen, setIsOpen] = useState(false);
 

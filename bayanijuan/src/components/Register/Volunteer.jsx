@@ -14,6 +14,8 @@ const Volunteer = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -22,10 +24,29 @@ const Volunteer = () => {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.firstName) newErrors.firstName = "First name is required.";
+    if (!formData.lastName) newErrors.lastName = "Last name is required.";
+    if (!formData.email) newErrors.email = "Email address is required.";
+    if (!formData.address) newErrors.address = "Address is required.";
+    if (!formData.city) newErrors.city = "City is required.";
+    if (!formData.postCode) newErrors.postCode = "Post code is required.";
+    if (!formData.phone) newErrors.phone = "Phone number is required.";
+    if (!formData.password) newErrors.password = "Password is required.";
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     try {
-      const response = await axios.post("http://localhost:5010/registerform", formData);
+      const response = await axios.post("http://localhost:5050/registerform", formData);
       console.log(response.data); // Log response from server
       // Handle success (e.g., clear form, show success message)
       setFormData({
@@ -38,6 +59,7 @@ const Volunteer = () => {
         phone: "",
         password: "",
       });
+      setErrors({});
       alert("Form submitted successfully!");
     } catch (error) {
       if (error.response) {
@@ -78,6 +100,7 @@ const Volunteer = () => {
                   onChange={handleChange}
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
+                {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
               </div>
             </div>
             <div className="w-full px-3 sm:w-1/2">
@@ -97,6 +120,7 @@ const Volunteer = () => {
                   onChange={handleChange}
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
+                {errors.lastName && <p className="text-red-500">{errors.lastName}</p>}
               </div>
             </div>
           </div>
@@ -117,6 +141,7 @@ const Volunteer = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.email && <p className="text-red-500">{errors.email}</p>}
           </div>
 
           <div className="mb-5">
@@ -135,6 +160,7 @@ const Volunteer = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.address && <p className="text-red-500">{errors.address}</p>}
           </div>
 
           <div className="-mx-3 flex flex-wrap">
@@ -155,6 +181,7 @@ const Volunteer = () => {
                   onChange={handleChange}
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
+                {errors.city && <p className="text-red-500">{errors.city}</p>}
               </div>
             </div>
             <div className="w-full px-3 sm:w-1/2">
@@ -174,6 +201,7 @@ const Volunteer = () => {
                   onChange={handleChange}
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
+                {errors.postCode && <p className="text-red-500">{errors.postCode}</p>}
               </div>
             </div>
           </div>
@@ -194,6 +222,7 @@ const Volunteer = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.phone && <p className="text-red-500">{errors.phone}</p>}
           </div>
 
           <div className="mb-5">
@@ -212,6 +241,7 @@ const Volunteer = () => {
               onChange={handleChange}
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
+            {errors.password && <p className="text-red-500">{errors.password}</p>}
           </div>
 
           <div>

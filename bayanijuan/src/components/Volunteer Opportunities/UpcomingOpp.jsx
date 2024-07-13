@@ -39,7 +39,7 @@ function UpcomingOpp() {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5010/upcomingopportunities",
+        "http://localhost:5050/upcomingopportunities",
         {
           params: {
             keyword,

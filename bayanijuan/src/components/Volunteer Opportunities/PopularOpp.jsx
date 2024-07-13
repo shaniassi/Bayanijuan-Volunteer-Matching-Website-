@@ -39,7 +39,7 @@ function PopularOpp() {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5010/popularopportunities",
+        "http://localhost:5050/popularopportunities",
         {
           params: {
             keyword,
