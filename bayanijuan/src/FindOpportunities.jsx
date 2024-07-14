@@ -12,7 +12,7 @@ function FindOpportunities() {
     "Healthcare & Wellness",
     "Youth Development",
     "Arts & Culture",
-    "Animal & Welfare",
+    "Animal Welfare",
   ]);
 
   const [openCategories, setOpenCategories] = useState({});
@@ -92,20 +92,20 @@ function FindOpportunities() {
   };
 
   return (
-    <div className="min-h-[600px] sm:min-h-[750px] flex flex-col-reverse justify-center lg:flex-row lg:justify-between items-center lg:px-32 px-5 gap-10 bg-cream text-blue">
-      <div className="absolute top-28 left-2 right-0 z-10 w-full max-w-[1445px] h-auto bg-white rounded-md shadow-md overflow-hidden">
+    <div className="min-h-screen flex flex-col sm:flex-row justify-center items-center gap-10 bg-cream text-blue p-5 mt-[-60px]">
+      <div className="w-full max-w-[1445px] h-auto bg-white rounded-md shadow-md overflow-hidden">
         {/* Search Bar */}
-        <div className="flex w-full bg-white rounded-md shadow-md overflow-hidden">
+        <div className="flex flex-col sm:flex-row w-full bg-white rounded-md shadow-md overflow-hidden mb-6">
           <input
             type="text"
             placeholder="Keyword"
-            className="px-4 py-2 w-full lg:w-1/4 text-1xl outline-none align-middle"
+            className="px-4 py-2 w-full sm:w-1/4 text-1xl outline-none"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
 
           <select
-            className="px-4 py-2 bg-white border-l text-1xl w-1/4 outline-none"
+            className="px-4 py-2 bg-white border-l text-1xl w-full sm:w-1/4 outline-none"
             value={selectedCause}
             onChange={(e) => setSelectedCause(e.target.value)}
           >
@@ -118,7 +118,7 @@ function FindOpportunities() {
           </select>
 
           <select
-            className="px-4 py-2 bg-white border-l w-1/3 outline-none text-1xl"
+            className="px-4 py-2 bg-white border-l w-full sm:w-1/3 outline-none text-1xl"
             value={selectedSkills}
             onChange={(e) => setSelectedSkills(e.target.value)}
           >
@@ -131,7 +131,7 @@ function FindOpportunities() {
           </select>
 
           <button
-            className="bg-blue text-white px-24 py-4 hover:bg-darkBlue ml-2"
+            className="bg-blue text-white px-24 py-2 hover:bg-darkBlue mt-2 sm:mt-0 ml-2"
             onClick={handleSearch}
           >
             Search
@@ -140,7 +140,7 @@ function FindOpportunities() {
 
         {/* Categories and Events */}
         <div
-          className="mt-6 p-4 bg-gray-100 rounded-md"
+          className="p-4 bg-gray-100 rounded-md"
           style={{ maxHeight: "500px", overflowY: "auto" }}
         >
           {categories.map((category) => (

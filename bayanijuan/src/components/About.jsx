@@ -1,14 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons for menu toggle
 
 const About = () => {
+  const [isOpen, setIsOpen] = useState(false); // State for menu toggle
+
   return (
     <div className='about-container bg-cream min-h-screen flex flex-col items-center justify-center py-16'>
-      <div className='max-w-screen-lg w-full mx-auto py-12 px-4 flex'>
+      <div className='max-w-screen-lg w-full mx-auto py-12 px-4 flex flex-col md:flex-row'>
+        {/* Menu Icon */}
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-7 h-7 absolute right-8 top-6 cursor-pointer md:hidden"
+        >
+          {isOpen ? <FaTimes className="text-2xl text-blue" /> : <FaBars className="text-2xl text-blue" />}
+        </div>
+
         {/* Left side: Contents */}
-        <div className= 'col-span-1'>
+        <div className='col-span-1 md:w-1/3 md:flex flex-col md:justify-start md:h-full'>
           <h2 className='text-6xl text-blue mb-0 font-header font-medium'>Contents</h2>
-          <nav className='toc'>
+          <nav className={`toc ${isOpen ? 'block' : 'hidden'} md:block mt-4 md:mt-0 md:sticky md:top-16`}>
             <ul className='toc-links'>
               <li><a className='text-xl font-body my-3 sm:text-1xl' href='#about-us-header'>About Us</a></li>
               <li><a className='text-xl font-body my-3 sm:text-1xl' href='#mission-header'>Mission</a></li>
@@ -20,7 +30,7 @@ const About = () => {
         </div>
 
         {/* Right side: Content sections */}
-        <div className='w-3/4 ml-10'>
+        <div className='w-full md:w-2/3 ml-0 md:ml-10'>
           <section id='about-us'>
             <h1 style={{ color: '#922C40' }} className='text-6xl mb-0 font-header font-medium' id='about-us-header'>About Us</h1>
             <p className='text-xl font-body my-3 sm:text-1xl text-justify'>
@@ -40,7 +50,7 @@ const About = () => {
             </p>
           </section>
           <section id='team-members' className='mt-10'>
-            <h1 style={{ color: '#922C40' }}className='text-6xl mb-0 font-header font-medium' id='team-members-header'>The Team</h1>
+            <h1 style={{ color: '#922C40' }} className='text-6xl mb-0 font-header font-medium' id='team-members-header'>The Team</h1>
             <p className='text-xl font-body my-3 sm:text-1xl text-justify'>
               Meet the dedicated and passionate individuals behind BayaniJuan. Our team works tirelessly to connect volunteers with opportunities that make a meaningful impact on communities.
             </p>

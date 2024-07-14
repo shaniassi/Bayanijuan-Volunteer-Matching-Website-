@@ -29,20 +29,20 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-cream">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-cream p-4 sm:p-10">
       <div className="w-full max-w-md bg-sun shadow-md rounded-lg p-8">
-        <h2 className="text-7xl font-medium mb-6 font-header text-center text-blue">Login</h2>
+        <h2 className="text-7xl lg:text-7xl font-medium mb-6 font-header text-center text-blue">Login</h2>
         {message && <p className="text-center text-red-500">{message}</p>}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-body font-bold mb-2" htmlFor="email">
+            <label className="block text-sm font-body font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -50,21 +50,21 @@ const Login = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-body font-bold mb-2" htmlFor="password">
+            <label className="block text-sm font-body font-bold mb-2" htmlFor="password">
               Password
             </label>
             <input
               type="password"
               id="password"
               name="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <button
               type="submit"
               className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
